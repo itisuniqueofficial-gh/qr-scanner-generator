@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">QR Scanner &amp; Generator</string>
+    <string name="camera_permission_denied">Camera permission is needed for QR scanning.</string>
+    <string name="file_chooser_unavailable">File picker is not available on this device.</string>
+    <string name="ssl_error_message">Secure connection failed. The app blocked this page for safety.</string>
+    <string name="press_back_again">Press back again to exit.</string>
+    <string name="no_supported_app">No supported app was found to open this link.</string>
+    <string name="choose_qr_image">Choose QR image</string>
+</resources>
