@@ -51,6 +51,29 @@ To test PWA behavior fully, use HTTPS on a deployed site such as GitHub Pages or
 - Custom domain support works with `qr.itisuniqueofficial.com`
 - Service worker and manifest work best over HTTPS
 
+## Android App
+
+This repository also includes a Play Store-ready Android Studio project in:
+
+`android-app/`
+
+The Android app is a secure Kotlin WebView wrapper for the live website and supports:
+
+- camera-based QR scanning
+- image upload for QR reading
+- UPI link handling
+- offline fallback behavior
+
+See:
+
+- `android-app/README-ANDROID.md`
+- `android-app/PLAY-STORE-LISTING.md`
+- `android-app/RELEASE-CHECKLIST.md`
+
+To build a signed Android App Bundle (`.aab`), open `android-app` in Android Studio and use:
+
+`Build > Generate Signed Bundle / APK`
+
 ## License
 
 MIT License
