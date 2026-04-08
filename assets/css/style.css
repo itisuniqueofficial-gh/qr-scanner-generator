@@ -400,6 +400,15 @@ button:disabled {
   gap: var(--space-3);
 }
 
+.content-stack {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.top-gap {
+  margin-top: var(--space-4);
+}
+
 details summary {
   cursor: pointer;
   font-weight: 700;

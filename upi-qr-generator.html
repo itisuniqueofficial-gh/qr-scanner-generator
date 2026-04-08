@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI QR Code Generator | Create UPI Payment QR Codes</title>
+  <meta name="description" content="Create a UPI payment QR code from payee details, amount, note, and reference ID. Preview instantly and download as PNG.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://qr.itisuniqueofficial.com/upi-qr-generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UPI QR Code Generator | Create UPI Payment QR Codes">
+  <meta property="og:description" content="Generate a UPI payment QR code for Bharat UPI payments directly in your browser.">
+  <meta property="og:url" content="https://qr.itisuniqueofficial.com/upi-qr-generator.html">
+  <meta property="og:site_name" content="QR Scanner & Generator">
+  <meta property="og:image" content="https://qr.itisuniqueofficial.com/assets/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UPI QR Code Generator | Create UPI Payment QR Codes">
+  <meta name="twitter:description" content="Build UPI payment QR codes with payee details, amount, and note, then download them as PNG.">
+  <meta name="twitter:image" content="https://qr.itisuniqueofficial.com/assets/images/og-image.svg">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "UPI QR Code Generator",
+      "url": "https://qr.itisuniqueofficial.com/upi-qr-generator.html",
+      "description": "Create a UPI payment QR code from payment details directly in your browser.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "QR Scanner & Generator",
+        "url": "https://qr.itisuniqueofficial.com/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">▣</span><span>QR Scanner & Generator</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="scanner.html">Scanner</a>
+        <a href="reader.html">Reader</a>
+        <a href="generator.html">Generator</a>
+        <a href="upi-qr-generator.html" aria-current="page">UPI QR</a>
+        <a href="upi-qr-redirect.html">UPI Redirect</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="section">
+    <div class="container page-grid tool-page-grid">
+      <section class="tool-main-column">
+        <p class="eyebrow">UPI QR Generator</p>
+        <h1>Create a UPI payment QR code</h1>
+        <p class="lead">Enter UPI payment details to build a payment URI and generate a QR code that can be scanned in supported UPI apps.</p>
+
+        <div class="card content-stack">
+          <h2>Why use this page</h2>
+          <p>This tool is built for Bharat UPI payment requests. It creates a proper UPI payment URI and turns it into a QR code that customers, clients, or contacts can scan in a supported UPI app.</p>
+          <p>For direct app opening without sharing a QR, use the <a href="upi-qr-redirect.html">UPI Redirect page</a>.</p>
+        </div>
+
+        <form id="upi-generator-form" class="card generator-form" novalidate>
+          <div class="form-group">
+            <label for="upi-payee-name">Payee name</label>
+            <input id="upi-payee-name" name="payeeName" type="text" placeholder="It Is Unique Official" required>
+          </div>
+          <div class="form-group">
+            <label for="upi-vpa">UPI ID / VPA</label>
+            <input id="upi-vpa" name="vpa" type="text" placeholder="name@bank" required>
+          </div>
+          <div class="form-group">
+            <label for="upi-amount">Amount</label>
+            <input id="upi-amount" name="amount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="100.00">
+          </div>
+          <div class="form-group">
+            <label for="upi-currency">Currency</label>
+            <select id="upi-currency" name="currency">
+              <option value="INR" selected>INR</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="upi-note">Transaction note</label>
+            <textarea id="upi-note" name="note" rows="4" placeholder="Payment for order or service"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="upi-reference">Transaction reference ID</label>
+            <input id="upi-reference" name="reference" type="text" placeholder="Optional reference ID">
+          </div>
+          <p id="upi-generator-status" class="status-text" role="status">Enter payment details to generate a UPI QR code.</p>
+          <p class="helper-text">The QR code and UPI link are generated in your browser. Payments happen in the user’s UPI app, not on this website.</p>
+          <div class="button-row">
+            <button id="upi-copy-uri" class="button button-secondary" type="button">Copy UPI URI</button>
+            <button id="upi-reset-form" class="button button-secondary" type="reset">Reset form</button>
+          </div>
+          <p class="helper-text">Need to open the payment link directly instead? <a href="upi-qr-redirect.html">Use the UPI Redirect page</a>.</p>
+        </form>
+      </section>
+
+      <aside class="tool-side-column">
+        <div class="card result-card centered-card">
+          <h2>UPI QR preview</h2>
+          <div id="upi-generator-preview" class="generator-preview">
+            <canvas id="upi-qr-canvas" width="280" height="280" aria-label="Generated UPI QR code preview"></canvas>
+          </div>
+          <div id="upi-generator-output" class="result-box small-result" tabindex="0">Your generated UPI payment URI will appear here.</div>
+          <button id="upi-download-qr" class="button" type="button" disabled>Download PNG</button>
+        </div>
+        <div class="card helper-card">
+          <h2>How to use it</h2>
+          <ul class="plain-list">
+            <li>Enter a valid UPI ID such as <code>name@bank</code>.</li>
+            <li>Add an amount if you want a pre-filled payment request.</li>
+            <li>Share the QR code for scanning or copy the UPI payment URI.</li>
+          </ul>
+        </div>
+        <div class="card helper-card">
+          <h2>Related tools</h2>
+          <div class="button-stack compact-actions">
+            <a class="button button-secondary keep-space" href="upi-qr-redirect.html">Open UPI Redirect</a>
+            <a class="button button-secondary keep-space" href="generator.html">Back to QR Generator</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><p class="footer-brand">QR Scanner & Generator</p><p class="footer-text">Simple QR tools at <a href="https://qr.itisuniqueofficial.com">qr.itisuniqueofficial.com</a>.</p><p class="footer-credit">Made with Love by It Is Unique Official — <a href="https://itisuniqueofficial.com">itisuniqueofficial.com</a></p></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="scanner.html">Scanner</a><a href="reader.html">Reader</a><a href="generator.html">Generator</a><a href="upi-qr-generator.html">UPI QR</a><a href="upi-qr-redirect.html">UPI Redirect</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a></nav>
+      <p class="copyright">© 2026 QR Scanner & Generator</p>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/qrcode.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/upi-generator.js" defer></script>
+</body>
+</html>
