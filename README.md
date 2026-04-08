@@ -1,12 +1,14 @@
 # QR Scanner & Generator
 
-A fast, simple, and responsive QR Scanner, QR Reader, and QR Code Generator that works directly in the browser.
+A fast, simple, and responsive QR Scanner, QR Reader, QR Code Generator, and UPI payment QR toolkit that works directly in the browser.
 
 ## Features
 
 - Scan QR codes using camera
 - Upload and read QR code images
 - Generate QR codes (Text, URL, Phone, Email, SMS, Wi-Fi)
+- Generate UPI payment QR codes
+- Build and open UPI payment links
 - Download QR as PNG
 - Mobile-friendly and responsive
 - No backend required
