@@ -1,4 +1,10 @@
 (function () {
+  if (window.location.pathname.endsWith('/index.html')) {
+    const normalizedPath = window.location.pathname.replace(/\/index\.html$/, '/');
+    window.location.replace(normalizedPath + window.location.search + window.location.hash);
+    return;
+  }
+
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.querySelector('.site-nav');
 
