@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Scanner | Scan QR Codes with Your Camera</title>
+  <meta name="description" content="Open your camera and scan QR codes quickly with a clean, privacy-friendly QR scanner that works directly in your browser.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://qr.itisuniqueofficial.com/scanner.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QR Scanner | Scan QR Codes with Your Camera">
+  <meta property="og:description" content="Scan QR codes using your device camera with a simple and responsive browser-based scanner.">
+  <meta property="og:url" content="https://qr.itisuniqueofficial.com/scanner.html">
+  <meta property="og:site_name" content="QR Scanner & Generator">
+  <meta property="og:image" content="https://qr.itisuniqueofficial.com/assets/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QR Scanner | Scan QR Codes with Your Camera">
+  <meta name="twitter:description" content="Use your camera to scan QR codes with clear controls and mobile-friendly layout.">
+  <meta name="twitter:image" content="https://qr.itisuniqueofficial.com/assets/images/og-image.svg">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "QR Scanner",
+      "url": "https://qr.itisuniqueofficial.com/scanner.html",
+      "description": "Scan QR codes using your camera with a clean, responsive, browser-based QR scanner.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "QR Scanner & Generator",
+        "url": "https://qr.itisuniqueofficial.com/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">▣</span><span>QR Scanner & Generator</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="scanner.html" aria-current="page">Scanner</a>
+        <a href="reader.html">Reader</a>
+        <a href="generator.html">Generator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="section">
+    <div class="container page-grid scanner-page-grid">
+      <section class="scanner-main-column">
+        <p class="eyebrow">QR Scanner</p>
+        <h1>Scan a QR code with your camera</h1>
+        <p class="lead">Start scanning when you are ready. Camera access is only used to detect QR codes on this page.</p>
+        <p class="notice">Privacy note: camera access is used only while scanning, and QR processing stays in your browser as much as possible.</p>
+
+        <div class="button-row scanner-actions">
+          <button id="start-scan" class="button" type="button">Start scanning</button>
+          <button id="stop-scan" class="button button-secondary" type="button" disabled>Stop scanning</button>
+        </div>
+
+        <div class="card scanner-preview-wrap">
+          <div class="scanner-preview">
+            <video id="scanner-video" playsinline muted aria-label="Live camera preview"></video>
+            <div class="scanner-overlay" aria-hidden="true"></div>
+          </div>
+          <p id="scanner-status" class="status-text" role="status">Camera is idle. Press start scanning to begin.</p>
+        </div>
+      </section>
+
+      <aside class="scanner-side-column">
+        <div class="card result-card">
+          <h2>Scanned result</h2>
+          <p class="helper-text">If the QR code contains a web link, you can open it directly.</p>
+          <div id="scanner-result" class="result-box" tabindex="0">No QR code scanned yet.</div>
+          <div class="button-stack compact-actions">
+            <a id="scanner-open-link" class="button button-secondary hidden" href="#" target="_blank" rel="noopener">Open link</a>
+            <button id="scanner-copy" class="button button-secondary" type="button" disabled>Copy result</button>
+            <button id="scanner-clear" class="button button-secondary" type="button" disabled>Clear result</button>
+          </div>
+        </div>
+        <div class="card helper-card">
+          <h2>Helpful tips</h2>
+          <ul class="plain-list">
+            <li>Hold the QR code inside the frame.</li>
+            <li>Use good lighting for faster detection.</li>
+            <li>Move a little closer if the code is small.</li>
+            <li>If your browser does not support camera access, try the image reader instead.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><p class="footer-brand">QR Scanner & Generator</p><p class="footer-text">Simple QR tools at <a href="https://qr.itisuniqueofficial.com">qr.itisuniqueofficial.com</a>.</p><p class="footer-credit">Made with Love by It Is Unique Official — <a href="https://itisuniqueofficial.com">itisuniqueofficial.com</a></p></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="scanner.html">Scanner</a><a href="reader.html">Reader</a><a href="generator.html">Generator</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a></nav>
+      <p class="copyright">© 2026 QR Scanner & Generator</p>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/jsqr.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/scanner.js" defer></script>
+</body>
+</html>
