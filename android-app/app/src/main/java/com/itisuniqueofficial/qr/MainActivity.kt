@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var connectivityManager: ConnectivityManager
-    private lateinit var networkCallback: ConnectivityManager.NetworkCallback
+    private var networkCallback: ConnectivityManager.NetworkCallback? = null
 
     private var fileChooserCallback: ValueCallback<Array<Uri>>? = null
     private var pendingCameraPermissionRequest: PermissionRequest? = null
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         val callback = fileChooserCallback ?: return@registerForActivityResult
         val uris = when {
             result.resultCode != Activity.RESULT_OK -> null
-            result.data == null && pendingCameraImageUri != null -> arrayOfNotNull(pendingCameraImageUri)
+            result.data == null && pendingCameraImageUri != null -> arrayOf(pendingCameraImageUri!!)
             else -> WebChromeClient.FileChooserParams.parseResult(result.resultCode, result.data)
         }
         callback.onReceiveValue(uris)
@@ -103,7 +103,6 @@ class MainActivity : AppCompatActivity() {
         with(binding.webView.settings) {
             javaScriptEnabled = true
             domStorageEnabled = true
-            databaseEnabled = true
             allowFileAccess = false
             allowContentAccess = true
             mediaPlaybackRequiresUserGesture = false
@@ -148,7 +147,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun registerConnectivityCallback() {
-        networkCallback = object : ConnectivityManager.NetworkCallback() {
+        val callback = object : ConnectivityManager.NetworkCallback() {
             override fun onAvailable(network: Network) {
                 runOnUiThread {
                     if (isOfflineVisible) {
@@ -166,7 +165,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        connectivityManager.registerDefaultNetworkCallback(networkCallback)
+        networkCallback = callback
+        runCatching {
+            connectivityManager.registerDefaultNetworkCallback(callback)
+        }.onFailure {
+            networkCallback = null
+        }
     }
 
     private fun isInternalUrl(uri: Uri): Boolean {
@@ -174,9 +178,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isOnline(): Boolean {
-        val network = connectivityManager.activeNetwork ?: return false
-        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        return runCatching {
+            val network = connectivityManager.activeNetwork ?: return false
+            val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+            capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        }.getOrDefault(false)
     }
 
     private fun showLoading(loading: Boolean) {
@@ -201,8 +207,10 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         fileChooserCallback?.onReceiveValue(null)
         fileChooserCallback = null
-        runCatching {
-            connectivityManager.unregisterNetworkCallback(networkCallback)
+        networkCallback?.let { callback ->
+            runCatching {
+                connectivityManager.unregisterNetworkCallback(callback)
+            }
         }
         binding.webView.destroy()
         super.onDestroy()
@@ -321,7 +329,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildCameraIntent(): Intent {
         val imageFile = createImageFile()
-        val authority = "${BuildConfig.APPLICATION_ID}.fileprovider"
+        val authority = "${packageName}.fileprovider"
         pendingCameraImageUri = FileProvider.getUriForFile(this, authority, imageFile)
 
         return Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE).apply {
