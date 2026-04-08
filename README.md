@@ -11,6 +11,8 @@ A fast, simple, and responsive QR Scanner, QR Reader, QR Code Generator, and UPI
 - Build and open UPI payment links
 - Download QR as PNG
 - Mobile-friendly and responsive
+- Installable Progressive Web App (PWA)
+- Offline support for core cached pages and assets
 - No backend required
 - Privacy-friendly (runs in browser)
 
@@ -31,12 +33,23 @@ https://qr.itisuniqueofficial.com
 
 Or deploy via GitHub Pages.
 
+## PWA Support
+
+- Installable on supported browsers
+- Manifest and app icons included
+- Service worker included for core asset and page caching
+- Offline fallback page included
+
+To test PWA behavior fully, use HTTPS on a deployed site such as GitHub Pages or your custom domain.
+
 ## GitHub Pages Deployment
 
 - Go to repo settings
 - Enable Pages
 - Select branch `main`
 - Set folder to `/ (root)`
+- Custom domain support works with `qr.itisuniqueofficial.com`
+- Service worker and manifest work best over HTTPS
 
 ## License
 

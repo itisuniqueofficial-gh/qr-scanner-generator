@@ -19,6 +19,14 @@
     });
   }
 
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/service-worker.js').catch(function () {
+        return null;
+      });
+    });
+  }
+
   window.AppUtils = {
     isLikelyUrl(value) {
       if (!value) return false;
